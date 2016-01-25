@@ -1,0 +1,27 @@
+//
+//  main.m
+//  NameThatIWanted
+//
+//  Created by 2 on 1/25/16.
+//  Copyright © 2016 123. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        // insert code here...
+        NSString* const tonyStar= @"Tony";
+        NSString *bilogurStar= @"Bilogur";
+        //int age= 19;
+        //tonyStar= @"asd";
+        NSLog(@"Hello my name is %@ %@, and this is the result of my programm:", tonyStar, bilogurStar);
+        NSArray *myMusic=[[NSArray alloc] initWithObjects:@"Brutto",@"Империя добра",@"Огоньки",@"Goldie", nil];
+        NSArray *myArtists=[[NSArray alloc] initWithObjects:@"Brutto",@"Lyapis Crew",@"Brutto",@"Asap Rockie", nil];
+        NSLog(@"List of artists and tracks");
+        for (int i=0; i<myArtists.count;i++) {
+            NSLog(@"%@ - %@", myArtists[i], myMusic[i]);
+        }
+    }
+    return 0;
+}
