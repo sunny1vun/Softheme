@@ -3,41 +3,52 @@
 //  HomeTask2
 //
 //  Created by 2 on 1/26/16.
-//  Copyright © 2016 123. All rights reserved.
+//  Copyright В© 2016 123. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "Artist.h"
-#import "Group.h"
-#import "Song.h"
+#import "YEPArtist.h"
+#import "YEPGroup.h"
+#import "YEPSong.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        NSMutableArray *someSongs=[[NSMutableArray alloc] initWithObjects:[[Song alloc] initWithName:@"Ты Кинула" text:@"SomeText" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]],[[Song alloc] initWithName:@"Грай" text:@"SomeText" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]], nil];
-        NSMutableArray *songs=[[NSMutableArray alloc] initWithObjects:[[Song alloc] initWithName:@"Brutto" text:@"SomeText" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]],[[Song alloc] initWithName:@"someSong" text:@"notSomeSong" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]], nil];
-        NSMutableArray *songsOfBrutto=[[NSMutableArray alloc] initWithObjects:[[Song alloc] initWithName:@"Brutto" text:@"SomeText" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]],[[Song alloc] initWithName:@"Underdog" text:@"SomeText" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]], nil];
-        NSMutableArray *noNameSongs=[[NSMutableArray alloc] initWithObjects:[[Song alloc] initWithName:@"Brutto" text:@"SomeText" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]],[[Song alloc] initWithName:@"Underdog" text:@"SomeText" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]], nil];
+        NSMutableArray *someSongs=[[NSMutableArray alloc] initWithObjects:
+		[[YEPSong alloc] initWithName:@"РўС‹ РљРёРЅСѓР»Р°" text:@"SomeText" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]],
+		[[YEPSong alloc] initWithName:@"Р“СЂР°Р№" text:@"SomeText" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]], 
+		nil];
+        NSMutableArray *songs=[[NSMutableArray alloc] initWithObjects:
+		[[YEPSong alloc] initWithName:@"Brutto" text:@"SomeText" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]],
+		[[YEPSong alloc] initWithName:@"someSong" text:@"notSomeSong" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]], 
+		nil];
+        NSMutableArray *songsOfBrutto=[[NSMutableArray alloc] initWithObjects:
+		[[YEPSong alloc] initWithName:@"Brutto" text:@"SomeText" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]],
+		[[YEPSong alloc] initWithName:@"Underdog" text:@"SomeText" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]], 
+		nil];
+        NSMutableArray *noNameSongs=[[NSMutableArray alloc] initWithObjects:
+		[[YEPSong alloc] initWithName:@"Brutto" text:@"SomeText" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]],
+		[[YEPSong alloc] initWithName:@"Underdog" text:@"SomeText" artists: [[NSArray alloc] initWithObjects: @"Lyapis", @"Crew", nil]], 
+		nil];
         
-        Artist *notSergeyMihalok=[[Artist alloc] initWithName:@"Не Сергей Михалок" listOfSongs:someSongs];
-        Artist *mihalok=[[Artist alloc] initWithName:@"Михалок" listOfSongs:songs];
-        Artist *sergey=[[Artist alloc] initWithName:@"Сергей" listOfSongs:songsOfBrutto];
-        Artist *noName=[[Artist alloc] initWithName:@"Noname" listOfSongs:noNameSongs];
-        
-        //Group *lyapisCrew=[[Group alloc] initWithName:@"LyapisCrew" listOfSongs:songs listOfArtist:[[NSArray alloc] initWithObjects: mihalok, notSergeyMihalok, nil]];
-        //Group *brutto=[[Group alloc] initWithName:@"Brutto" listOfSongs: songsOfBrutto listOfArtist:[[NSArray alloc] initWithObjects: mihalok, sergey, nil]];
-        Group *lyapisCrew=[[Group alloc] init];
+        YEPArtist *notSergeyMihalok=[[YEPArtist alloc] initWithName:@"РќРµ РЎРµСЂРіРµР№ РњРёС…Р°Р»РѕРє" listOfSongs:someSongs];
+        YEPArtist *mihalok=[[YEPArtist alloc] initWithName:@"РњРёС…Р°Р»РѕРє" listOfSongs:songs];
+        YEPArtist *sergey=[[YEPArtist alloc] initWithName:@"РЎРµСЂРіРµР№" listOfSongs:songsOfBrutto];
+        YEPArtist *noName=[[YEPArtist alloc] initWithName:@"Noname" listOfSongs:noNameSongs];
+         
+		YEPGroup *lyapisCrew=[[YEPGroup alloc] init];
         lyapisCrew.name= @"LyapisCrew";
         lyapisCrew.listOfSongs= songs;
         lyapisCrew.listOfArtists= [[NSArray alloc] initWithObjects:notSergeyMihalok, noName, nil];
         
-        Group *brutto=[[Group alloc] init];
+        YEPGroup *brutto=[[YEPGroup alloc] init];
         brutto.name= @"Brutto";
         brutto.listOfSongs= songsOfBrutto;
         brutto.listOfArtists= [[NSArray alloc] initWithObjects:mihalok, sergey, nil];
         
         
-        
+        NSArray *groups= [[NSArray alloc] initWithObjects: lyapisCrew, brutto];
+		NSLog([groups prettyViewOfElements]);
         
     }
     return 0;
