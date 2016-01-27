@@ -17,6 +17,6 @@
 -(instancetype) initWithName:(NSString*)name
                  listOfSongs:(NSArray*)listOfSongs;
 
--(NSString*) descriprtion;
+-(NSString*) description;
 
 @end
