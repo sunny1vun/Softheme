@@ -7,12 +7,13 @@
 //
 
 #import "NSArray+Utility.h"
-#import "YOGroup.h"
+#import "YEPGroup.h"
+#import "YEPArtist.h"
+#import "YEPSong.h"
 
 @implementation NSArray(Utility)
--(NSString*)prettyViewOfElements:(int)index
-			nameOfGroup:(NSString*)name;
-{
+//-(NSString*)prettyViewOfElements{
+-(NSString*)prettyViewOfElements: (NSString*)nameOfBand{
 	/*It is used for Arrays. Output of Array by given (int)index.
 	It shows: Name of the group
 	List of Artists wich are in the group
@@ -21,14 +22,42 @@
 	(array of strings)+
 	(array of strings)
 	*/
-	self=[super init];
-		if(!self) return nil;
-    for(int i=0; i<self.count; i++){
-		if(i== index){
-			if([[self[index] class] isEqualToString: @"") 
-		}
-	}   
-		return self;
+    NSMutableString *string = [[NSMutableString alloc] init];
+    for(id item in self){
+        
+        if ([item class] == [YEPGroup class]){
+            
+            if ([item class] == [YEPGroup class]){
+                for(YEPGroup *group in self){
+                    if([group.name isEqualToString: nameOfBand]){
+                    [string appendFormat:@"%@ - Group \n", group.name];
+                    [string appendFormat:@"List of Artists ("];
+                    int i= 0;
+                    for(YEPArtist *artist in group.listOfArtists){
+                        [string appendFormat:@"%@", artist.name];
+                        if(i< group.listOfArtists.count-1){
+                            i++;
+                            [string appendString:@", "];
+                        }
+                    }
+                    [string appendString:@") \n"];
+                    [string appendString:@"List of songs ("];
+                    i= 0;
+                    for(YEPSong *song in group.listOfSongs){
+                        [string appendFormat:@"\"%@\"", song.name];
+                        if(i< group.listOfArtists.count-1){
+                            i++;
+                            [string appendString:@", "];
+                        }
+                    }
+                    [string appendString:@") \n\n"];
+                    }
+                }
+                return string;
+            }
+        }
+    }
+    return @"Error";
 }
 
 @end
