@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YOGroup.h"
+#import "YEPGroup.h"
+#import "YEPArtist.h"
 
 @interface NSArray(Utility)
 
-@property YEPGroup* group;
--(NSString*)prettyViewOfElements:(int)index;
+-(NSString*)prettyViewOfElements:(NSString*)nameOfBand;
 
 @end
