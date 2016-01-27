@@ -1,4 +1,4 @@
-//
+å//
 //  YEPGroup.h
 //  HomeTask2
 //
@@ -12,7 +12,5 @@
 @interface YEPGroup : YEPArtist
 
 @property NSArray *listOfArtists;
-
-//создать метод возвращающий чето там
 
 @end
