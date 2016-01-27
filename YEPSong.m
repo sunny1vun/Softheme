@@ -6,9 +6,9 @@
 //  Copyright В© 2016 123. All rights reserved.
 //
 
-#import "Song.h"
+#import "YEPSong.h"
 
-@implementation Song
+@implementation YEPSong
 
 -(instancetype)initWithName:(NSString*)name
                        text:(NSString*)text
@@ -23,9 +23,12 @@
     return self;
 }
 
--(void)outPutOfSong:(Song*)anotherSong{
-    
+-(NSString*)outPutOfSong{
+    NSMutableString *string = [[NSMutableString alloc] init];
+    YEPSong *song= [super init];
+    [string appendFormat:@"\n%@ \n\n", song.name];
+    [string appendFormat:@"\"%@\", ", song.text];
+    return string;
 }
-
 
 @end
