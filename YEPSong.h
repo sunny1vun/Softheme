@@ -12,11 +12,11 @@
 
 @protocol YEPSongProtocol <NSObject>
 @required
--(void)outPutOfSong:(YEPSong*)anotherSong;
+-(NSString*)outPutOfSong;
 
 @end
 
-@interface YEPSong : NSObject <SongProtocol>
+@interface YEPSong : NSObject <YEPSongProtocol>
 
 @property NSString *name;
 @property NSString *text;
